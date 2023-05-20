@@ -43,7 +43,7 @@ function Home() {
                             <Col>
                            
                                 <Card style={{ width: '20rem' }}>
-                                    <Card.Img variant="top" src={d.img} className='img-motion' onClick={() => nav('/Detail', { state: { finalpage: d } })}/>
+                                    <Card.Img variant="top" src={d.img} className='img-motion' onClick={() => nav('/Detail', { state: d  })}/>
                                     <Card.Body>
                                        {/*  <Card.Title>Card Title</Card.Title> */}
                                         <Card.Text>

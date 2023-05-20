@@ -20,12 +20,13 @@ let submitlogin=async()=>{
       let res =await axios.post("login",params).catch(err=>alert(err))
       console.log(res.data);
       
-      let {success,message,data} =res.data
+    let {success,message,data} =res.data
       if(success){
       alert(message)
    console.log(data);
-   localStorage.setItem('user',true)
+   localStorage.setItem('user',email)
       nav("/")
+      window.location.reload();
       }
       else{
         alert(message)

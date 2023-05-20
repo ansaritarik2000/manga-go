@@ -12,7 +12,8 @@ function Register(){
     const [fileName, setFileName] = useState("");
      
 let submitregister=async()=>{
-    console.log(file);
+  console.log("register");
+   /*  console.log(file);
     console.log(fileName);
     
       const formdata= new FormData();
@@ -21,16 +22,20 @@ let submitregister=async()=>{
       let data =JSON.stringify( Object.fromEntries(formdata));
     
     console.log(data);
-      let params={
+    */
+    let params={
       username:name,
       email:email,
       password:password,
-      image:file
+     // image:file
     }
-    console.log(params);         /*  params =  value hold kar raha ha name,email,password */
+   /*  console.log(params);  */      /*  params =  value hold kar raha ha name,email,password */
     try {
-        let res =await axios.post("register",params).catch(err=>alert(err))
+
+      let res =await axios.post("register",params).catch(err=>alert(err))
+      
         console.log(res.data);
+       
         let {success,message} =res.data
         if(success){
           alert(message)
@@ -41,8 +46,8 @@ let submitregister=async()=>{
           alert(message)
         }
       } catch (error) {
-        console.log("error==",error);
-        alert(error)
+      console.log("error==",error);
+        alert(error) 
       }
     
     setEmail("")
