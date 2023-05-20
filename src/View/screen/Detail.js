@@ -24,7 +24,7 @@ const[user,setUser]=useState(localStorage.getItem('user'))
         const{success, message} = res?.data;
         if(success){
             alert(message)
-
+            nav('/profile')
         }
         else{
             alert(message)

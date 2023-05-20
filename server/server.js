@@ -72,3 +72,33 @@ app.post('/login',function(req,res){
     }
     res.send(resultdata)
 })
+
+app.post('/showdownload',function(req,res){
+    let data=fs.readFileSync('./data/userdownload.json',"utf8")
+    let adddata=[]
+    data.split('\n').forEach(d=>{
+        adddata.push(d)
+    })
+    let add1=[]
+    adddata.map(d=>{
+        if(d!=="")
+        add1.push(JSON.parse(d))
+    })
+    
+    let resultlog="";
+    let test=false
+    let downdata=[];
+    add1.map(d=>{
+        if(d.username===req.body.email ||d.email===req.body.email  ){
+            downdata.push(d)
+            test=true
+        }
+    })
+    if(test){
+        resultlog={success:true,message:"show download successfully",data:downdata}
+    }
+    else{
+        resultlog={success:false,message:"show download not successfully",data:{}}
+    }
+    res.send(resultlog)
+ })
